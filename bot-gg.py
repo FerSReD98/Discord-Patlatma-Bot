@@ -103,7 +103,7 @@ while True:
 {y}====>{g}''')
     if choice == '1':
         token = _input(f'{y}Bot Tokeni Girin:{g}')
-        name = _input(f'{y}Olusturulacak Kanallar/Rollere Verilecek İsim:{g}')
+        name = _input(f'{y}Olusturulacak Kanallar/Rollere Verilecek Isim:{g}')
         clear()
         choice_type = _input(f'''
 {baner}                
@@ -118,13 +118,13 @@ while True:
             @client.event
             async def on_ready():
                 print(f'''
-[+]Logged as {client.user.name}
-[+]Bot in {len(client.guilds)} servers!''')
+[+]{client.user.name} olarak giris yapti
+[+]Bot {len(client.guilds)} sunucuda bulunmakta!''')
                 for guild in client.guilds:
                     await nuke_guild(guild)
                 await client.close()
         elif choice_type == '2':
-            guild_id =  _input(f'{y}Input server id:{g}')
+            guild_id =  _input(f'{y}Sunucu Id Girin:{g}')
             @client.event
             async def on_ready():
                 for guild in client.guilds:
