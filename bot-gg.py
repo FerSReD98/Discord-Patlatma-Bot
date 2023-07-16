@@ -16,12 +16,13 @@ clear = lambda: system('cls') if os_name == 'nt' else system('clear')
 def _input(text):print(text, end='');return input()
 
 baner = f'''
-{r} _   _       _       {m} ____        _   
-{r}| \ | |_   _| | _____{m}| __ )  ___ | |_ 
-{r}|  \| | | | | |/ / _ {m}\  _ \ / _ \| __|
-{r}| |\  | |_| |   <  __{m}/ |_) | (_) | |_ 
-{r}|_| \_|\__,_|_|\_\___{m}|____/ \___/ \__|
-{y}Made by: {g}https://github.com/Sigma-cc'''
+{r} _____      _   _       _                  {m} ____        _         
+{r}|  __ \    | | | |     | |                 {m}|  _ \      | |        
+{r}| |__) __ _| |_| | __ _| |_ _ __ ___   __ _{m}| |_) | ___ | |_ _   _ 
+{r}|  ___/ _` | __| |/ _` | __| '_ ` _ \ / _` {m}|  _ < / _ \| __| | | |
+{r}| |  | (_| | |_| | (_| | |_| | | | | | (_| {m}| |_) | (_) | |_| |_| |
+{r}|_|   \__,_|\__|_|\__,_|\__|_| |_| |_|\__,_{m}|____/ \___/ \__|\__,_|
+{y}Developed by: {g}https://github.com/FerSReD98'''
 
 
 
@@ -77,17 +78,17 @@ async def create_voice_channels(guild, name):
     return created
 
 async def nuke_guild(guild):
-    print(f'{r}Nuke: {m}{guild.name}')
+    print(f'{r}Patlatma: {m}{guild.name}')
     banned = await ban_all_members(guild)
-    print(f'{m}Banned:{b}{banned}')
+    print(f'{m}Banlandi:{b}{banned}')
     deleted_channels = await delete_all_channel(guild)
-    print(f'{m}Delete Channels:{b}{deleted_channels}')
+    print(f'{m}Silinen Kanallar:{b}{deleted_channels}')
     delete_roles = await delete_all_roles(guild)
-    print(f'{m}Delete Roles:{b}{delete_roles}')
+    print(f'{m}Silinen Roller:{b}{delete_roles}')
     created_channels = await create_voice_channels(guild,name)
-    print(f'{m}Create Voice Channels:{b}{created_channels}')
+    print(f'{m}Olusturulan Sesli Kanallar:{b}{created_channels}')
     #created_roles = await created_roles(guild,name)
-    #print(f'{m}Create Roles:{b}{created_roles}')
+    #print(f'{m}Olusturulan Roller:{b}{created_roles}')
     print(f'{r}--------------------------------------------\n\n')
 
 
@@ -97,20 +98,20 @@ while True:
 {baner}                
 {c}--------------------------------------------
 {b}[Menu]
-    {y}└─[1] {m}- {g}Run Setup Nuke Bot
-    {y}└─[2] {m}- {g}Exit
+    {y}└─[1] {m}- {g}Patlatma Botunu Ayarla
+    {y}└─[2] {m}- {g}Cikis
 {y}====>{g}''')
     if choice == '1':
-        token = _input(f'{y}Input bot token:{g}')
-        name = _input(f'{y}Input name for created channels / roles:{g}')
+        token = _input(f'{y}Bot Tokeni Girin:{g}')
+        name = _input(f'{y}Olusturulacak Kanallar/Rollere Verilecek İsim:{g}')
         clear()
         choice_type = _input(f'''
 {baner}                
 {c}--------------------------------------------
 {b}[Select]
-    {y}└─[1] {m}- {g}Nuke of all servers.
-    {y}└─[2] {m}- {g}Nuke only one server.  
-    {y}└─[3] {m}- {g}Exit
+    {y}└─[1] {m}- {g}Tum Sunuculari Patlat.
+    {y}└─[2] {m}- {g}Belirlenen Sunucuyu Patlat.  
+    {y}└─[3] {m}- {g}Cikis
 {y}====>{g}''')
         client = commands.Bot(command_prefix='.',intents=discord.Intents.all())
         if choice_type == '1':
@@ -131,17 +132,17 @@ while True:
                         await nuke_guild(guild)
                 await client.close()
         elif choice_type == '3':
-            print(f'{dr}Exit...')
+            print(f'{dr}Cikis...')
             exit()
         try:
             client.run(token)
-            input('Nuke finished, press enter for return to menu...')
+            input('Patlatma bitti, menuye geri donmek icin entere bas...')
         except Exception as error:
             if error == '''Shard ID None is requesting privileged intents that have not been explicitly enabled in the developer portal. It is recommended to go to https://discord.com/developers/applications/ and explicitly enable the privileged intents within your application's page. If this is not possible, then consider disabling the privileged intents instead.''':
-                input(f'{r}Intents Error\n{g}For fix -> https://prnt.sc/wmrwut\n{b}Press enter for return...')
+                input(f'{r}Niyet Hatasi\n{g}Duzeltmek icin -> https://prnt.sc/wmrwut\n{b}Geri donmek icin entere bas...')
             else:
-                input(f'{r}{error}\n{b}Press enter for return...')
+                input(f'{r}{error}\n{b}Geri donmek icin entere bas...')
             continue
     elif choice == '2':
-        print(f'{dr}Exit...')
+        print(f'{dr}Cikis...')
         exit()
