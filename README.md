@@ -12,6 +12,8 @@
 # Kurulum:
 ## Android (Termux):
 ```console
+pkg install git
+
 apt update && apt upgrade
 
 pkg install python git
