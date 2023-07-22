@@ -2,11 +2,11 @@
 * Python 3.6 - 3.8
 ***
 # Özellikler
- - [x] Kanalları Silme
- - [x] Tüm Kullanıcıları Banlama
- - [x] Rolleri Silme
- - [x] Kanallar Oluşturma
- - [ ] Roller Oluşturma
+ - [x] Kanalları Sil
+ - [x] Kullanıcıları Banla
+ - [x] Rolleri Sil
+ - [x] Kanallar Oluştur
+ - [ ] Roller Oluştur
 
 ***
 # Kurulum:
@@ -26,7 +26,7 @@ python -m pip install -r requirements.txt
 
 python bot-gg.py
 ```
-**[Sonraki lansmanlar]**
+**## Kurulumdan Sonra Çalıştırmak İçin**
 ```console
 cd Discord-Patlatma-Bot
 
